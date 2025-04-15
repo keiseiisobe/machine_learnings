@@ -1,3 +1,3 @@
 # Linear Support Vector Machine
 
-![](Figure.png)
+![](Figure_1.png)
