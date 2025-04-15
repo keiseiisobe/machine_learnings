@@ -14,12 +14,12 @@ class Hinge_Loss:
             dLdb = 0
         else:
             dLdw = -np.dot(y, x) + 2 * self.tradeoff * w
-            dLdb = y
+            dLdb = -y
         return loss, dLdw, dLdb
            
 
 class Linear_SVM:
-    def __init__(self, learning_rate=1e-3, epochs=1000):
+    def __init__(self, learning_rate=1e-3, epochs=100):
         self.w = None
         self.b = None
         self.lr = learning_rate
@@ -43,7 +43,7 @@ model = Linear_SVM()
 w, b = model.fit(X, y)
 
 def get_hyperplane(x, w, b):
-    return (-w[0] * x + b) / w[1]
+    return (-w[0] * x - b) / w[1]
 
 plt.scatter(X[:,0], X[:,1], marker='o',c=y)
 min_x1 = np.min(X[:, 0])
